@@ -3,7 +3,10 @@ FROM centos:centos7
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 
-RUN yum update && yum -y install \
+RUN yum -y update
+
+RUN yum -y install \
+    less \
     curl \
     mariadb \
     php71w \

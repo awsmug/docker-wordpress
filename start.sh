@@ -44,8 +44,6 @@ if [ -z "$MYSQL_PASS" ]; then
     MYSQL_PASS=root
 fi
 
-wp cli update
-
 if [ ! -f "${WP_PATH}/wp-config.php" ] || [ ${WP_INSTALL} == "fresh" ]; then
     mkdir -p ${WP_PATH}
 
@@ -76,7 +74,7 @@ if [ ! -f "${WP_PATH}/wp-config.php" ] || [ ${WP_INSTALL} == "fresh" ]; then
     if [ ! -z "$WP_THEMES" ]; then
         IFS=' ' read -ra themes <<< "${WP_THEMES}"
         for themes in "${theme[@]}"; do
-            echo "Installung Plugin ${theme}...";
+            echo "Installing Plugin ${theme}...";
             wp theme install ${theme} --path=${WP_PATH}
         done
     fi
