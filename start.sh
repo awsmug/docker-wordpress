@@ -44,7 +44,7 @@ if [ -z "$MYSQL_PASS" ]; then
     MYSQL_PASS=root
 fi
 
-if [ ! -f "${WP_PATH}/wp-config.php" ] || [ ${WP_INSTALL} == "fresh" ]; then
+if [ ! -f "${WP_PATH}/wp-config.php" ] || [ ${WP_INSTALL} == "new" ]; then
     mkdir -p ${WP_PATH}
 
     if [ -f "${WP_PATH}/wp-config.php" ]; then
