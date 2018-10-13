@@ -83,7 +83,11 @@ if [ ! -f "${WP_PATH}/wp-config.php" ] || [ ${WP_INSTALL} == "new" ]; then
         wp theme activate ${WP_ACTIVE_THEME} --path=${WP_PATH}
     fi
 
-    echo "<?php phpinfo();" >> ${WP_PATH}/phpinfo.php
+    wp plugin update --all
+    wp theme update --all
+    wp language core update
+    wp language plugin update --all
+    wp language theme update --all
 fi
 
 tail -f /dev/null
